@@ -72,8 +72,8 @@ class Asset{
 
 
 
-const user = new Jummper('Adriano Heller','Rua Padre Anchieta 1968 apto 405','80730001','Curitiba','Paraná','Brasil','61982700760','oadrianoo@icloud.com');
-const userPro = new Professional('Arthur Mylla Filho','Rua Padre Anchieta 1968 apto 405','80730001','Curitiba','Paraná','Brasil','41991526156','arthurmylla@hotmail.com',false,1,2,0);
+const user = new Jummper('John Doe','Rua Ancient Place 198 apto 404','80730999','Cascavel','Paraná','Brasil','6299765412','master@up.com');
+const userPro = new Professional('Armando Pires Filho','Rua Pio X','81280201','Ivai','Paraná','Brasil','4999270156','armando@hotmail.com',false,1,2,0);
 const influencer = new Influencer('Padme Wars','Rua Tatooin 1968 apto 405','80730001','New Galaxy','Wollt','Mars','69998765426','padme@sith.com',true,2,'instagrammer',0);
 
 const cadastro = new Asset('signup',{
