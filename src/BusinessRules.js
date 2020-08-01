@@ -32,3 +32,5 @@ const recover = new Cashback(15000,true,'18750-4','Banco Santander','Conta-Corre
 
 console.log(recover.incrementValue(200)) 
 console.log(recover.cashback)
+
+module.exports = Cashback;

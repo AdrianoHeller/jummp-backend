@@ -62,3 +62,5 @@ console.log(shop.currentCart())
 shop.removeFromCart('9t26sg38d39du37s16j3')
 console.log(shop.currentCart())
 console.log(shop.cart)
+
+module.exports = Cart;
