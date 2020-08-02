@@ -16,11 +16,22 @@ class Wallet{
       }],
       combo: this.combo,
       discount: this.discount,
-      discountType : this.discountType	    
+      discountType: this.discountType
     }
-  } 	
+  }
+
+  generatePrice(index){
+      index = typeof index === 'object' && index.plan instanceof Array ? index : {};
+      let amount = 0
+      for(let i = 0; i< index.plan.length; i++){
+      index.plan[i].price ? amount += index.plan[i].price : false
+    }
+      index['amount'] = amount	   
+    return index
+  }
 
   mountWalletPrice(data){
+    let mountedPrice;
     data = typeof data === 'object' && data.plan instanceof Array ? (
     mountedPrice = data.plan.length > 1 ? data.plan.reduce((acc,elem) => acc + elem.price,0) : data.plan[0].price) : false;
     return mountedPrice		 
@@ -35,5 +46,6 @@ const newBuy = new Wallet('unimed-familia-3',1200,false)
 console.log(buy)
 console.log(newBuy)
 console.log(buy.indexes)
-
+console.log(buy.mountWalletPrice(buy.indexes))
+console.log(buy.generatePrice(buy.indexes))
 module.exports = Wallet;
