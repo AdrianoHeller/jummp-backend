@@ -30,7 +30,7 @@ class Cashback{
 
 const recover = new Cashback(15000,true,'18750-4','Banco Santander','Conta-Corrente','visa')
 
-console.log(recover.incrementValue(200)) 
-console.log(recover.cashback)
+//console.log(recover.incrementValue(200)) 
+//console.log(recover.cashback)
 
 module.exports = Cashback;

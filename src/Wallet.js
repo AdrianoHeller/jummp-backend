@@ -54,8 +54,8 @@ class Wallet{
 const buy = new Wallet('unimed-flex-2',350,false)
 const newBuy = new Wallet('unimed-familia-3',1200,false)
 
-console.log(buy.generatePrice(buy.indexes))
-buy.addPlan(buy.indexes,{ name: 'odontoprev-fx-12', price: 250})
-console.log(buy.indexes)
+//console.log(buy.generatePrice(buy.indexes))
+//buy.addPlan(buy.indexes,{ name: 'odontoprev-fx-12', price: 250})
+//console.log(buy.indexes)
 
 module.exports = Wallet;

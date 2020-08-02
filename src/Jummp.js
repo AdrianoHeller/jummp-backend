@@ -80,10 +80,10 @@ const cadastro = new Asset('signup',{
   ...userPro
 },30,50)
 
-console.log(cadastro.updateMetadata('date',new Date()))
-console.log(cadastro)
-console.log(influencer.jummperBio)
-console.log(userPro.jummperBio)
+//console.log(cadastro.updateMetadata('date',new Date()))
+//console.log(cadastro)
+//console.log(influencer.jummperBio)
+//console.log(userPro.jummperBio)
 
 module.exports = {
   Jummper,
