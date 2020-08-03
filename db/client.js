@@ -51,7 +51,7 @@ const insertSingleUserAsync = (connection,data) => new Promise(async(resolve,rej
 
 const insertMultipleUserAsync = (connection,MultiData) => new Promise(async(resolve,reject) => {
   connection = await connection();
-  connection['db'].collection(process.env.MONGO_COLLECTION).insertMany(data,(err,mData) => {
+  connection['db'].collection(process.env.MONGO_COLLECTION).insertMany(Multidata,(err,mData) => {
     !err ? resolve() : reject(err)
   })
   await connection['client'].close();	
