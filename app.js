@@ -101,7 +101,7 @@ const router = {
 	)
       ) : (
         res.writeHead(405),
-	res.end(stringifier({'Error':'Method not allowed in this endpoint.'}))      
+	res.end(stringifier({'Error':'Method not allowed in this endpoint.'}))     
       )
     ) : (
       res.writeHead(403),
@@ -110,8 +110,40 @@ const router = {
   },
   newUser: (payloadData,res) => {
     res.setHeader(jsonData.one,jsonData.two);
-    res.writeHead(200);
-    res.end();	  
+    let {method,body} = payloadData;
+    method === 'POST' ? (
+      parsedBody = parser(body),
+      parsedBody.name && parsedBody.address && parsedBody.email && parsedBody.password && parsedBody.city && parsedBody.phone && parsedBody.zipCode ? (
+	name = typeof parsedBody.name === 'string' && parsedBody.name.length > 0 ? parsedBody.name : false,
+	address = typeof parsedBody.address === 'string' && parsedBody.address.length > 0 ? parsedBody.address : false,
+	email = typeof parsedBody.email === 'string' && parsedBody.email.length > 0 ? parsedBody.email : false,
+	pass = typeof parsedBody.password === 'string' && parsedBody.password.length > 0 ? parsedBody.password : false,
+	city = typeof parsedBody.city === 'string' && parsedBody.city.length > 0 ? parsedBody.city : false,
+	phone = typeof parsedBody.phone === 'string' && parsedBody.phone.length > 0 ? parsedBody.phone : false,
+	zipCode = typeof parsedBody.zipCode === 'string' && parsedBody.zipCode.length >= 8 ? parsedBody.zipCode : false,
+        parsedBody.hashedPassword = hashPasswordInput(pass),
+	delete parsedBody.password,
+	parsedBody.password = parsedBody.hashedPassword,      
+	res.writeHead(302,{Location:'/success-page'}),
+	res.end()      
+      ) : (
+        res.writeHead(400),
+	res.end(stringifier({'Error':'Missing input values.'}))      
+      ) 	    
+    ) : (
+      res.writeHead(405),
+      res.end(stringifier({'Error':'Method not Allowed in this endpoint.'}))	        )
+  },
+  'success-page': (payloadData,res) => {
+    res.setHeader(jsonData.one,jsonData.two);
+    let parsedBody = parser(payloadData.body);
+    parsedBody ? (
+      res.writeHead(200),
+      res.end(stringifier({'Message':'Logged with success'}))	    
+    ) : (
+      res.writeHead(400),
+      res.end(stringifier({'Error':'Missing Input Values'}))	    
+    )	  
   },
   notFound: (payloadData,res) => {
     res.setHeader(jsonData.one,jsonData.two);
